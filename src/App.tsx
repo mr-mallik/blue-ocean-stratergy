@@ -120,8 +120,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
 
   if (!saved) {
     return (
-      <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">Competitive Analysis App</h1>
+      <div className="bg-color container max-w-2xl w-full mx-auto p-4 pt-10">
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -138,7 +137,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
           />
         </div>
         <div className="mb-4">
-          <h2 className="text-2xl font-bold mb-2">List of Competitors:</h2>
+          <h2 className="text-2xl font-bold mb-2 mt-8">List of Competitors:</h2>
           {competitors.map((competitor, index) => (
             <div key={index} className="mb-2">
               <label
@@ -148,7 +147,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
                 Competitor {index + 1}:
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id={`competitor${index}`}
                 type="text"
                 value={competitor}
@@ -158,7 +157,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
           ))}
         </div>
         <div className="mb-4">
-          <h2 className="text-2xl font-bold mb-2">
+          <h2 className="text-2xl font-bold mb-2 mt-8">
             List of Competitive Features:
           </h2>
           {features.map((feature, index) => (
@@ -170,7 +169,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
                 Feature {index + 1}:
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 mb-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id={`feature${index}`}
                 type="text"
                 value={feature}
@@ -195,8 +194,8 @@ const CompetitiveAnalysisApp: React.FC = () => {
             </thead>
             <tbody>
               <tr key="company">
-                <td className="px-4 py-2">{companyName || 'You'}</td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-1">{companyName || 'You'}</td>
+                <td className="px-4 py-1">
                   <input
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     type="number"
@@ -207,7 +206,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
                   />
                 </td>
                 {features.map((_, featureIndex) => (
-                  <td key={featureIndex} className="px-4 py-2">
+                  <td key={featureIndex} className="px-4 py-1">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type="number"
@@ -227,7 +226,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
               </tr>
               {competitors.map((competitor, competitorIndex) => (
                 <tr key={competitorIndex + 1}>
-                  <td className="px-4 py-2">{competitor || `C${competitorIndex + 1}`}</td>
+                  <td className="px-4 py-1">{competitor || `C${competitorIndex + 1}`}</td>
                   <td className="px-4 py-2">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -261,12 +260,14 @@ const CompetitiveAnalysisApp: React.FC = () => {
             </tbody>
           </table>
         </div>
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          onClick={handleSave}
-        >
-          Save
-        </button>
+        <div className="text-center my-10">
+          <button
+            className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            onClick={handleSave}
+          >
+            Save
+          </button>
+        </div>
       </div>
     );
   } else {
@@ -326,7 +327,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
             })}
           </LineChart>
           <div className="ml-8">
-            <h2 className="text-xl font-bold mb-2">Score Matrix</h2>
+            <h2 className="text-xl font-bold mb-2  mt-8">Score Matrix</h2>
             <table className="table-auto">
               <thead>
                 <tr>
