@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 body {
   font-family: 'Lato', sans-serif;
@@ -17,14 +20,70 @@ h1 {
   font-size: 1.5rem;
 }
 
-.bg-color {
-  background: url("../public/ocean-bg.png");
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+}
+
+/* Page bacground */
+.page-bg {
+  background: url("../public/bg-blue-ocean.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  z-index: 1;
+  position: relative;
 }
 
-.bg-color {
-  
+.page-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(166 201 255 / 50%);
+  z-index: -1; 
+  bottom: 0;
 }
 
+.form-container {
+  position: relative
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: -1; 
+  bottom: 0;
+}
+
+.btn-aqua {
+  background: rgb(32,208,247);
+  background: linear-gradient(344deg, rgba(32,208,247,1) 0%, rgba(67,157,190,1) 52%, rgba(32,208,247,1) 100%);
+}
+
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Adjust this depending on the desired spacing below the text */
+  width: 50px;
+  height: 3px; /* This defines the thickness of the underline */
+  background: rgb(32, 208, 247);
+  background: linear-gradient(344deg, rgb(88 224 255) 0%, rgba(67, 157, 190, 1) 52%, rgb(255 255 255) 100%);
+  border-radius: 2px; /* Optional: gives a rounded edge to the underline */
+}
