@@ -193,7 +193,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
         <div className="mb-4">
           <h2 className="text-lg laptop:text-xl font-bold mb-3 mt-8">Score Matrix:</h2>
           <div className="overflow-x-scroll">
-            <table className="w-full">
+            <table className="w-full score-matrix">
               <thead>
                 <tr>
                   <th className="px-4 py-2">Competitor</th>
@@ -208,7 +208,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
               <tbody>
                 <tr key="company">
                   <td className="px-4 py-1 text-center">{companyName || 'You'}</td>
-                  <td className="px-4 py-1">
+                  <td className="px-4 py-1 text-center">
                     <input
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type="number"
@@ -219,7 +219,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
                     />
                   </td>
                   {features.map((_, featureIndex) => (
-                    <td key={featureIndex} className="px-4 py-1">
+                    <td key={featureIndex} className="px-4 py-1 text-center">
                       <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="number"
@@ -240,7 +240,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
                 {competitors.map((competitor, competitorIndex) => (
                   <tr key={competitorIndex + 1}>
                     <td className="px-4 py-1 text-center">{competitor || `C${competitorIndex + 1}`}</td>
-                    <td className="px-4 py-2">
+                    <td className="px-4 py-2 text-center">
                       <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="number"
@@ -251,7 +251,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
                       />
                     </td>
                     {features.map((_, featureIndex) => (
-                      <td key={featureIndex} className="px-4 py-2">
+                      <td key={featureIndex} className="px-4 py-2 text-center">
                         <input
                           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           type="number"
@@ -311,7 +311,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
     ];
     
     return (
-      <div className="form-container container w-11/12 laptop:w-full mx-auto p-4 laptop:p-12 my-10 rounded border">
+      <div className="form-container container max-w-4xl w-11/12 laptop:w-full mx-auto p-4 my-10 rounded border laptop:p-12">
         <div className="grid grid-cols-2 items-center pb-8">
           <h2 className="text-lg laptop:text-xl font-bold">Competitive Analysis Chart</h2>
           <a className="btn-aqua justify-self-end hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="/">Back</a>
@@ -345,7 +345,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
           </LineChart>
           <div className="">
             <h2 className="text-lg laptop:text-xl font-bold mb-8 mt-8">Score Matrix</h2>
-            <table className="ml-8 table-auto mb-10">
+            <table className="ml-8 table-auto mb-10 score-matrix">
               <thead>
                 <tr>
                   <th className="px-4 py-2">Competitor</th>

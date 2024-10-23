@@ -8,8 +8,12 @@
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
   -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon/favicon-48x48.png" sizes="48x48" />
+  <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Blue Ocean" />
+  <link rel="manifest" href="%PUBLIC_URL%/favicon/site.webmanifest" />
   <!--
     Notice the use of %PUBLIC_URL% in the tags above.
     It will be replaced with the URL of the `public` folder during the build.
@@ -20,14 +24,69 @@
     Learn how to configure a non-root public URL by running `npm run build`.
   -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Competitive Analysis App</title>
-  <meta name="description" content="A web app for conducting competitive analysis.">
-  <meta name="keywords" content="competitive analysis, market research, business strategy, product management">
+  <!-- Basic SEO Meta Tags -->
+<title>Competitive Analysis App - Compare Your Company with Competitors</title>
+<meta name="description" content="The Competitive Analysis App helps you analyze and compare your company’s performance against competitors, using tools inspired by the Blue Ocean Strategy.">
+<meta name="keywords" content="competitive analysis, business analysis, blue ocean strategy, product comparison tool, company performance, competitors analysis">
+<meta name="author" content="Gulger Mallik, Veda Salkar">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph Meta Tags (for social media previews) -->
+<meta property="og:title" content="Competitive Analysis App - Compare Your Company with Competitors">
+<meta property="og:description" content="Easily compare your company’s performance against competitors using the Competitive Analysis App. Visualize strengths and opportunities with interactive graphs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://github.com/your-username/competitive-analysis-app">
+<meta property="og:image" content="https://yourdomain.com/image-preview.png"> <!-- Replace with your image URL -->
+<meta property="og:site_name" content="Competitive Analysis App">
+
+<!-- Twitter Card Meta Tags (for Twitter sharing) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Competitive Analysis App - Compare Your Company with Competitors">
+<meta name="twitter:description" content="Use the Competitive Analysis App to visualize how your company compares to competitors in terms of key product features and price.">
+<meta name="twitter:image" content="https://yourdomain.com/twitter-image.png"> <!-- Replace with your Twitter image URL -->
+<meta name="twitter:site" content="@yourTwitterHandle">
+
+<!-- Schema.org Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Competitive Analysis App",
+  "description": "The Competitive Analysis App simplifies the process of comparing your company's performance against competitors, using visual tools inspired by the Blue Ocean Strategy to identify areas for differentiation.",
+  "url": "https://github.com/your-username/competitive-analysis-app",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "any",
+  "softwareVersion": "1.0.0",
+  "contributor": [
+    {
+      "@type": "Person",
+      "name": "Gulger Mallik",
+      "url": "https://github.com/mr-mallik/"
+    },
+    {
+      "@type": "Person",
+      "name": "Veda Salkar",
+      "url": "https://github.com/veda04"
+    }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "url": "https://github.com/your-username/competitive-analysis-app",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "downloadUrl": "https://github.com/your-username/competitive-analysis-app",
+  "license": "https://opensource.org/licenses/MIT",
+  "sourceCode": "https://github.com/your-username/competitive-analysis-app",
+  "keywords": ["competitive analysis", "business analysis", "blue ocean strategy", "comparison tool"]
+}
+</script>
+  
 </head>
 <body class="page-bg">
-  <header class="sticky top-0 shadow-md z-50 laptop:bg-transparent">
+  <header class="sticky top-0 shadow-md z-50 laptop:bg-transparent p-0">
     <div class="">
-      <h1 class="text-3xl font-bold mb-4 p-4 text-left uppercase font-bold">Logo</h1>
+      <h1 class="text-3xl font-bold mb-4 px-4 text-left uppercase font-bold"><img src="logo.png" width="90px" alt="site logo" /></h1>
       <!--  Competitive Analysis App -->
     </div>
   </header>

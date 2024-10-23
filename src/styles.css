@@ -87,3 +87,13 @@ h2::after {
   background: linear-gradient(344deg, rgb(88 224 255) 0%, rgba(67, 157, 190, 1) 52%, rgb(255 255 255) 100%);
   border-radius: 2px; /* Optional: gives a rounded edge to the underline */
 }
+
+.score-matrix input{
+  width: 70px !important;
+}
+
+@media screen and (max-width: 400px) {
+  header {
+    background: #fff;
+  }
+}
