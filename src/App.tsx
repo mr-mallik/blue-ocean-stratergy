@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer
 } from "recharts";
 
 interface Competitor {
@@ -67,6 +68,11 @@ const CompetitiveAnalysisApp: React.FC = () => {
     competitorIndex: number,
     featureIndex: number
   ) => {
+    const value = parseInt(e.target.value, 10);
+    if (value < 0 || value > 100) {
+        alert("Score must be between 0 and 100.");
+        return;
+    }
     const newScoreMatrix = { ...scoreMatrix };
     if (!newScoreMatrix.competitors[competitorIndex]) {
       newScoreMatrix.competitors[competitorIndex] = {
@@ -95,24 +101,30 @@ const CompetitiveAnalysisApp: React.FC = () => {
   };
 
   const handleSave = () => {
+    // Validate inputs
+    if (!companyName || competitors.some(c => !c) || features.some(f => !f)) {
+        alert("Please fill in all fields before saving.");
+        return;
+    }
+
     const updatedScoreMatrix: ScoreMatrix = {
-      competitors: [
-        {
-          name: companyName || 'You',
-          price: scoreMatrix.competitors[0]?.price || 0,
-          features: features.map((_, featureIndex) => 
-            scoreMatrix.competitors[0]?.features[featureIndex] || 0
-          ),
-        },
-        ...competitors.map((name, index) => ({
-          name,
-          price: scoreMatrix.competitors[index + 1]?.price || 0,
-          features: features.map((_, featureIndex) => 
-            scoreMatrix.competitors[index + 1]?.features[featureIndex] || 0
-          ),
-        })),
-      ],
-      features: features.map(name => ({ name })),
+        competitors: [
+            {
+                name: companyName || 'You',
+                price: scoreMatrix.competitors[0]?.price || 0,
+                features: features.map((_, featureIndex) => 
+                    scoreMatrix.competitors[0]?.features[featureIndex] || 0
+                ),
+            },
+            ...competitors.map((name, index) => ({
+                name,
+                price: scoreMatrix.competitors[index + 1]?.price || 0,
+                features: features.map((_, featureIndex) => 
+                    scoreMatrix.competitors[index + 1]?.features[featureIndex] || 0
+                ),
+            })),
+        ],
+        features: features.map(name => ({ name })),
     };
     setScoreMatrix(updatedScoreMatrix);
     setSaved(true);
@@ -273,7 +285,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
       </div>
     );
   } else {
-    console.log(scoreMatrix);
+    // console.log(scoreMatrix);
     
     const chartData: ChartDataItem[] = [
       {
@@ -306,7 +318,7 @@ const CompetitiveAnalysisApp: React.FC = () => {
         </div>
         
         <div className="overflow-x-scroll">
-          <LineChart width={800} height={400} data={chartData}>
+          <LineChart width={600} height={400} data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis />
@@ -355,11 +367,16 @@ const CompetitiveAnalysisApp: React.FC = () => {
                         max={100}
                         value={competitor.price}
                         onChange={(e) => {
+                          let featureScore = parseInt(e.target.value, 10)
+                          if (featureScore < 0 || featureScore > 100) {
+                              alert("Score must be between 0 and 100.");
+                              return;
+                          }
                           const updatedCompetitors = scoreMatrix.competitors.map((c, i) => {
                             if (i === index) {
                               return {
                                 ...c,
-                                price: parseInt(e.target.value, 10)
+                                price: featureScore
                               };
                             }
                             return c;
@@ -377,11 +394,16 @@ const CompetitiveAnalysisApp: React.FC = () => {
                           max={100}
                           value={score}
                           onChange={(e) => {
+                            let featureScore = parseInt(e.target.value, 10)
+                            if (featureScore < 0 || featureScore > 100) {
+                                alert("Score must be between 0 and 100.");
+                                return;
+                            }
                             const updatedCompetitors = scoreMatrix.competitors.map((c, i) => {
                               if (i === index) {
                                 return {
                                   ...c,
-                                  features: c.features.map((s, j) => j === featureIndex ? parseInt(e.target.value, 10) : s)
+                                  features: c.features.map((s, j) => j === featureIndex ? featureScore : s)
                                 };
                               }
                               return c;
